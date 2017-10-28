@@ -5,7 +5,7 @@ This is a starter kit that uses webpack 3, mocha, chai, and jsdom 11.
 ## Get Started
 
 1. **Install [Node LTS](https://nodejs.org)**. Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows)
-2. **Clone this repository.** - `git clone https://github.com/coryhouse/javascript-development-environment.git` or [download the zip](https://github.com/coryhouse/javascript-development-environment/archive/master.zip)
+2. **Clone this repository.** - `git clone https://github.com/jcscott2015/js-starterkit.git` or [download the zip](https://github.com/jcscott2015/js-starterkit/archive/master.zip)
 3. **Make sure you're in the directory you just created.** - `cd javascript-development-environment`
 4. **Install Node Packages.** - `npm install`
 5. **Run the app.** - `npm start -s`
