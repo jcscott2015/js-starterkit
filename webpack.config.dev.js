@@ -5,11 +5,11 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   devtool : 'inline-source-map',
-  //noInfo : false,
-  entry : [path.resolve(__dirname, 'src/index')],
+  /* Defining path seems necessary for this to work consistently on Windows machines. */
+  entry : [path.resolve(__dirname, 'src/index.js')],
   target : 'web',
   output : {
-    path: path.resolve(__dirname, 'src'),
+    path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -17,7 +17,9 @@ export default {
     new webpack.LoaderOptionsPlugin({debug: true}),
 
     // Create HTML file that includes reference to bundled JS.
-    new HtmlWebpackPlugin({template: 'src/index.html', inject: true}),
+    new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
+      template: 'src/index.html'
+    }),
 
     new ExtractTextPlugin("index.css")
   ],

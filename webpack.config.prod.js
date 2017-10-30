@@ -6,16 +6,16 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   devtool : 'source-map',
-  //noInfo : false,
   entry : {
-    vendor: path.resolve(__dirname, 'src/vendor'),
-    main: path.resolve(__dirname, 'src/index')
+    vendor: path.resolve(__dirname, 'src/vendor.js'),
+    main: path.resolve(__dirname, 'src/index.js')
   },
   target : 'web',
   output : {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].[chunkhash].js'
+    //filename: '[name].[chunkhash].js'
+    chunkFilename: "[chunkhash].[id].chunk.js"
   },
   plugins : [
     new webpack.LoaderOptionsPlugin({debug: false, minimize: true}),
@@ -26,8 +26,7 @@ export default {
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
 
-    // Use CommonsChunkPlugin to create a separate bundle of vendor libraries so
-    // that they're cached separately.
+    /* Use CommonsChunkPlugin to create a separate bundle of vendor libraries so that they're cached separately. */
     new webpack
       .optimize
       .CommonsChunkPlugin({name: 'vendor'}),
