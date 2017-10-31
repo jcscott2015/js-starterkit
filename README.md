@@ -9,8 +9,10 @@ This is a starter kit that uses webpack 3, mocha, chai, and jsdom 11.
 3. **Make sure you're in the directory you just created.** - `cd javascript-development-environment`
 4. **Install Node Packages.** - `npm install`
 5. **Run the app.** - `npm start -s`
-This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
-6. Having issues? See below.
+This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching files all your files. Every time you hit save the code is rebuilt (in memory), linting runs, and tests run automatically. (Currently, you'll have to reload the browser page manually.) Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
+6. **Build the app.** - `npm run build
+This will run linting and tests and then build the app and place minimized and optimized code files in the dist folder. These can be copied to your public server.
+7. Having issues? See below.
 
 ## Having Issues? Try these things first:
 
@@ -53,7 +55,6 @@ This will run the automated build process, start up a webserver, and open the ap
 | npm-run-all                 | Display results of multiple commands on single command line                                               |
 | nsp                 | The Node Security (nodesecurity.io) command line interface                                               |
 | numeral                 | Format and manipulate numbers                                               |
-| open                        | Open app in default browser                                                                               |
 | rimraf                      | Delete files                                                                                              |
 | sass-loader                  | Add SASS loading support to Webpack                                                                        |
 | style-loader                | Add Style support to Webpack                                                                              |
