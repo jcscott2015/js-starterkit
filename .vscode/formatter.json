@@ -1,0 +1,14 @@
+{
+  "javascript": {
+    "indent_size": 2,
+    "jslint_happy": true,
+    "end_with_newline": true,
+    "keep_array_indentation": true
+  },
+  "css": {
+    "indent_size": 2
+  },
+  "html": {
+    "indent_size": 2
+  }
+}

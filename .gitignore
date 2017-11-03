@@ -57,4 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
-.DSRM
+# Ignore Mac resouces
+.DS_Store
