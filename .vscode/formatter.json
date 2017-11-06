@@ -1,9 +1,12 @@
 {
+  "onSave": true,
   "javascript": {
+    "brace_style": "collapse-preserve-inline",
+    "end_with_newline": true,
     "indent_size": 2,
     "jslint_happy": true,
-    "end_with_newline": true,
-    "keep_array_indentation": true
+    "keep_array_indentation": true,
+    "max_preserve_newlines": 4
   },
   "css": {
     "indent_size": 2
