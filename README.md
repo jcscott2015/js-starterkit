@@ -61,4 +61,3 @@ This will run linting and tests and then build the app and place minimized and o
 | webpack                     | Bundler with plugin system and integrated development server                                              |
 | webpack-dev-middleware      | Adds middleware support to webpack                                                                        |
 | webpack-hot-middleware      | Adds hot reloading to webpack                                                                             |
-| webpack-md5-hash      | Plugin to replace a standard webpack chunkhash with md5.                                                                             |
