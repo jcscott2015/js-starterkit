@@ -7,15 +7,15 @@
 /* eslint-disable no-console */
 
 import jsf from 'json-schema-faker';
-import {schema} from './mockDataSchema';
+import { schema } from './mockDataSchema';
 import fs from 'fs';
-import {chalkError, chalkSuccess} from './chalkConfig';
+import { chalkError, chalkSuccess } from './chalkConfig';
 
 const json = JSON.stringify(jsf(schema));
 
 fs.writeFile("./src/api/db.json", json, function (err) {
   if (err) {
-    return console.log(chalkError(err));
+    return console.error(chalkError(err));
   } else {
     console.log(chalkSuccess("Mock data generated."));
   }

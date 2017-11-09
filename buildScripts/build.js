@@ -4,7 +4,7 @@
 /*eslint-disable no-console*/
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config.prod';
-import {chalkError, chalkSuccess, chalkWarning, chalkProcessing} from './chalkConfig';
+import { chalkError, chalkSuccess, chalkWarning, chalkProcessing } from './chalkConfig';
 
 process.env.NODE_ENV = 'production'; // this assures the Babel dev config doesn't apply.
 
@@ -12,7 +12,7 @@ console.log(chalkProcessing('Generating minified bundle for production. This wil
 
 webpack(webpackConfig).run((err, stats) => {
   if (err) { // so a fatal error occurred. Stop here.
-    console.log(chalkError(err));
+    console.error(chalkError(err));
     return 1;
   }
 
@@ -21,7 +21,7 @@ webpack(webpackConfig).run((err, stats) => {
   if (jsonStats.hasErrors) {
     return jsonStats
       .errors
-      .map(error => console.log(chalkError(error)));
+      .map(error => console.error(chalkError(error)));
   }
 
   if (jsonStats.hasWarnings) {
@@ -31,7 +31,7 @@ webpack(webpackConfig).run((err, stats) => {
       .map(warning => console.log(chalkWarning(warning)));
   }
 
-  console.log(`Webpack stats: ${stats}`);
+  console.info(`Webpack stats: ${stats}`);
 
   // if we got this far, the build succeeded.
   console.log(chalkSuccess('Your app has been built for production and written to /dist!'));

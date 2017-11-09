@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
-import open from 'open';
 import compression from 'compression';
+import { chalkError, chalkProcessing } from './chalkConfig';
 
 /*eslint-disable no-console */
 
@@ -11,14 +11,15 @@ const app = express();
 app.use(express.static('dist'));
 app.use(compression());
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-app.listen(port, function(err) {
+app.listen(port, 'localhost', err => {
   if (err) {
-    console.log(err);
-  } else {
-    open(`http://localhost:${port}`);
+    console.error(chalkError(err));
+    return;
   }
+
+  console.log(chalkProcessing(`Listening at http://localhost:${port}`));
 });

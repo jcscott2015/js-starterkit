@@ -4,13 +4,13 @@
 // prod.
 import fs from 'fs';
 import cheerio from 'cheerio';
-import {chalkSuccess} from './chalkConfig';
+import { chalkError, chalkSuccess } from './chalkConfig';
 
 /*eslint-disable no-console */
 
 fs.readFile('src/index.html', 'utf8', (err, markup) => {
   if (err) {
-    return console.log(err);
+    return console.error(chalkError(err));
   }
 
   const $ = cheerio.load(markup);
@@ -21,7 +21,7 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
 
   fs.writeFile('dist/index.html', $.html(), 'utf8', function (err) {
     if (err) {
-      return console.log(err);
+      return console.error(chalkError(err));
     }
     console.log(chalkSuccess('index.html written to /dist'));
   });
