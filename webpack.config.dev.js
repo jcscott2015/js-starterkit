@@ -28,7 +28,9 @@ export default {
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
-      template: 'src/index.html'
+      title: 'JS Starter Kit',
+      template: 'src/index.html',
+      xhtml: true
     }),
 
     new ExtractTextPlugin("css/index.css"),

@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default {
   resolve: {
@@ -36,6 +37,7 @@ export default {
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
+      title: 'JS Starter Kit',
       template: 'src/index.html',
       minify: {
         removeComments: true,
@@ -50,10 +52,18 @@ export default {
         minifyURLs: true
       },
       inject: true,
+      xhtml: true,
       // Properties you define here are available in index.html using
       // htmlWebpackPlugin.options.varName
       trackJSToken: 'INSERT YOUR TOKEN HERE'
     }),
+
+    new CopyWebpackPlugin([
+      {
+        from: 'src/favicon.ico',
+        to: 'favicon.ico'
+      }
+    ]),
 
     // Minify JS
     new webpack

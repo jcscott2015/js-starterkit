@@ -46,6 +46,7 @@ This will run linting and tests and then build the app and place minimized and o
 | chalk                       | Node Terminal string styling done right                                                                                |
 | cheerio                     | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
 | compression                       | Node.js compression middleware                                                                                |
+| copy-webpack-plugin      | Copy files and directories in webpack                                                                        |
 | cross-env                   | Cross-environment friendly way to handle environment variables                                            |
 | css-loader                  | Add CSS support to Webpack                                                                                |
 | eslint                      | Lints JavaScript                                                                                          |

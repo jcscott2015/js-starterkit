@@ -1,4 +1,6 @@
-import './index.css';
+import './favicons/favicons';
+import './css/reboot.css';
+import './css/index.css';
 
 import {getUsers, deleteUser} from './api/userApi';
 
