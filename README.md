@@ -24,6 +24,13 @@ This will run linting and tests and then build the app and place minimized and o
 6. Seeing `Error: listen EADDRINUSE :::3000`? That means port 3000 is already in use on your machine. You probably have another instance of this project running on your machine in a different window. So find that window and kill the other instance using Ctrl+C.
 7. Nothing above work? Delete your node_modules folder and re-run npm install.
 
+### Dependencies
+
+| **Dependency**              | **Use**                                                                                                   |
+| --------------------------- | --------------------------------------------------------------------------------------------------------- |
+| promise-polyfill                   | Lightweight promise polyfill. A+ compliant                                                                              |
+| whatwg-fetch                   | A window.fetch polyfill
+
 ### Development Dependencies
 
 | **Dependency**              | **Use**                                                                                                   |
@@ -34,6 +41,8 @@ This will run linting and tests and then build the app and place minimized and o
 | babel-preset-env         | Babel preset for running all the latest standardized JavaScript features                                  |
 | babel-register              | Register Babel to transpile our Mocha tests                                                               |
 | chai                       | Node BDD/TDD assertion library for node.js and the browser. Test framework agnostic.                                                                                |
+| chai-as-promised                       | Extends Chai with assertions about promises.                                                                                |
+| chai-fetch-mock                       | Chai plugin for fetch-mock library                                                                                |
 | chalk                       | Node Terminal string styling done right                                                                                |
 | cheerio                     | Supports querying DOM with jQuery like syntax - Useful in testing and build process for HTML manipulation |
 | compression                       | Node.js compression middleware                                                                                |
@@ -44,6 +53,8 @@ This will run linting and tests and then build the app and place minimized and o
 | eslint-watch                | Add watch functionality to ESLint                                                                         |
 | express        | Fast, unopinionated, minimalist web framework                                                                   |
 | extract-text-webpack-plugin | Extracts CSS into separate file for production build                                                      |
+| fetch-mock | Mock http requests made using fetch (or isomorphic-fetch)                                                      |
+| file-loader                | File loader module for webpack                                                                              |
 | html-webpack-plugin                      | Simplifies creation of HTML files to serve your webpack bundles                                                                      |
 | jsdom                       | In-memory DOM for testing                                                                                 |
 | jsdom-schema-faker                       | JSON-Schema + fake data generators                                                                                 |
@@ -57,7 +68,9 @@ This will run linting and tests and then build the app and place minimized and o
 | numeral                 | Format and manipulate numbers                                               |
 | rimraf                      | Delete files                                                                                              |
 | sass-loader                  | Add SASS loading support to Webpack                                                                        |
+| sinon                  | JavaScript test spies, stubs and mocks.                                                                        |
 | style-loader                | Add Style support to Webpack                                                                              |
+| url-loader                | URL loader module for webpack                                                                              |
 | webpack                     | Bundler with plugin system and integrated development server                                              |
 | webpack-dev-middleware      | Adds middleware support to webpack                                                                        |
 | webpack-hot-middleware      | Adds hot reloading to webpack                                                                             |
