@@ -3,7 +3,6 @@ import path from 'path';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
 import { chalkError, chalkProcessing } from './chalkConfig';
 
 /* eslint-disable no-console */
@@ -33,8 +32,6 @@ app.use(webpackMiddleware(bundler, {
   // for other settings see
   // https://webpack.js.org/guides/development/#using-webpack-dev-middleware
 }));
-
-app.use(webpackHotMiddleware(bundler));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../src/index.html'));
