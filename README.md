@@ -71,7 +71,7 @@ This will run linting and tests and then build the app and place minimized and o
 | sass-loader                  | Add SASS loading support to Webpack                                                                        |
 | sinon                  | JavaScript test spies, stubs and mocks.                                                                        |
 | style-loader                | Add Style support to Webpack                                                                              |
+| uglifyjs-webpack-plugin                | UglifyJS plugin for webpack                                                                              |
 | url-loader                | URL loader module for webpack                                                                              |
 | webpack                     | Bundler with plugin system and integrated development server                                              |
 | webpack-dev-middleware      | Adds middleware support to webpack                                                                        |
-| webpack-hot-middleware      | Adds hot reloading to webpack                                                                             |

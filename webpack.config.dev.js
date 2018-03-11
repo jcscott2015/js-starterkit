@@ -9,15 +9,10 @@ export default {
     extensions: ['*', '.js', '.jsx', '.json', 'map']
   },
   devtool: 'inline-source-map',
-  /* Defining path seems necessary for this to work consistently on Windows machines. */
-  // entry: [
-  //   'webpack/hot/dev-server',
-  //   'webpack-hot-middleware/client', path.resolve(__dirname, 'src/index.js')
-  // ],
   target: 'web',
   output: {
     filename: 'bundle.js',
-    // path: path.resolve(__dirname, './dist'), // Note: Physical files are only output by the production build task `npm run build`.
+    // path: path.resolve(__dirname, './dist'), // Preview build, if available. Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/'
   },
   plugins: [
