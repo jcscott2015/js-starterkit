@@ -4,19 +4,20 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
+  mode: 'development',
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json', 'map']
   },
   devtool: 'inline-source-map',
   /* Defining path seems necessary for this to work consistently on Windows machines. */
-  entry: [
-    'webpack/hot/dev-server',
-    'webpack-hot-middleware/client', path.resolve(__dirname, 'src/index.js')
-  ],
+  // entry: [
+  //   'webpack/hot/dev-server',
+  //   'webpack-hot-middleware/client', path.resolve(__dirname, 'src/index.js')
+  // ],
   target: 'web',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
+    // path: path.resolve(__dirname, './dist'), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/'
   },
   plugins: [
@@ -29,7 +30,8 @@ export default {
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({ // Create HTML file that includes references to bundled CSS and JS.
       title: 'JS Starter Kit',
-      template: 'src/index.html',
+      template: './src/index.html',
+      filename: "./index.html",
       xhtml: true
     }),
 
@@ -62,7 +64,7 @@ export default {
         }, {
           loader: 'sass-loader',
           options: {
-            includePaths: [path.resolve(__dirname, 'src', 'scss')],
+            includePaths: [path.resolve(__dirname, './src', './scss')],
             sourceMap: true
           }
         }]

@@ -2,21 +2,24 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default {
+  mode: 'production',
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json']
   },
   devtool: 'source-map',
   entry: {
-    vendor: path.resolve(__dirname, 'src/vendor.js'),
-    main: path.resolve(__dirname, 'src/index.js')
+    vendor: path.resolve(__dirname, './src/vendor.js'),
+    main: path.resolve(__dirname, './src/index.js')
   },
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, './dist'),
+    // In production, publicPath needs to be "./" instead of "/".
+    publicPath: './',
     filename: 'js/[name].[chunkhash].js'
       //chunkFilename: "[chunkhash].[id].chunk.js"
   },
@@ -33,12 +36,14 @@ export default {
     /* Use CommonsChunkPlugin to create a separate bundle of vendor libraries so that they're cached separately. */
     new webpack
       .optimize
-      .CommonsChunkPlugin({ name: 'vendor' }),
+      .SplitChunksPlugin({ name: './vendor' }),
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
+      favicon: './src/favicon.ico',
       title: 'JS Starter Kit',
-      template: 'src/index.html',
+      template: './src/index.html',
+      filename: "./index.html",
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -59,19 +64,14 @@ export default {
     }),
 
     new CopyWebpackPlugin([
-      {
-        from: 'src/favicon.ico',
-        to: 'favicon.ico'
-      }
+      { from: './src/favicons', to: './favicons/' }
     ]),
 
     // Minify JS
-    new webpack
-      .optimize
-      .UglifyJsPlugin({
+    new UglifyJsPlugin({
       sourceMap: true,
-      compress: {
-        warnings: true
+      uglifyOptions: {
+        compress: true
       }
     })
   ],
@@ -109,7 +109,7 @@ export default {
         }, {
           loader: 'sass-loader',
           options: {
-            includePaths: [path.resolve(__dirname, 'src', 'scss')],
+            includePaths: [path.resolve(__dirname, './src', './scss')],
             sourceMap: true
           }
         }]
