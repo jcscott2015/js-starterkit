@@ -1,11 +1,15 @@
 {
     "presets": [
-        "env"
+        ["@babel/env", {
+            "targets": {
+                "node": "current"}
+            }
+        ]
     ],
     "env": {
         "production": {
             "presets": [
-                ["env", {
+                ["@babel/env", {
                     "es2015": {
                         "modules": false
                     }
